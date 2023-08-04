@@ -6,8 +6,6 @@ window.addEventListener("DOMContentLoaded", function () {
   pacman = document.getElementById("pacman");
   ghost = document.getElementById("ghost");
   cookie = document.getElementById("cookie");
-  console.log(pacman);
-  console.log(ghost);
 });
 
 function elementsOverlap(el1, el2) {
