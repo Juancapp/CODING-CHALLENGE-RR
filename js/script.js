@@ -14,11 +14,18 @@ function elementsOverlap(el1, el2) {
   const domRect1 = el1.getBoundingClientRect();
   const domRect2 = el2.getBoundingClientRect();
 
+  var optimizedPositions = {
+    top: domRect1.top + 8,
+    right: domRect1.right - 13,
+    bottom: domRect1.bottom - 8,
+    left: domRect1.left + 8,
+  };
+
   return !(
-    domRect1.top > domRect2.bottom ||
-    domRect1.right < domRect2.left ||
-    domRect1.bottom < domRect2.top ||
-    domRect1.left > domRect2.right
+    optimizedPositions.top > domRect2.bottom ||
+    optimizedPositions.right < domRect2.left ||
+    optimizedPositions.bottom - 8 < domRect2.top ||
+    optimizedPositions.left + 8 > domRect2.right
   );
 }
 
