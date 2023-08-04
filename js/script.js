@@ -1,9 +1,11 @@
 var pacman;
 var ghost;
+var cookie;
 
 window.addEventListener("DOMContentLoaded", function () {
   pacman = document.getElementById("pacman");
   ghost = document.getElementById("ghost");
+  cookie = document.getElementById("cookie");
   console.log(pacman);
   console.log(ghost);
 });
@@ -42,10 +44,18 @@ function move(event) {
 
   if (elementsOverlap(pacman, ghost)) {
     alert("You lost");
-    pacman.style = {
+    return (pacman.style = {
       top: 0,
       left: 0,
-    };
+    });
+  }
+
+  if (elementsOverlap(pacman, cookie)) {
+    alert("¡Congrats! You won");
+    return (pacman.style = {
+      top: 0,
+      left: 0,
+    });
   }
 }
 
